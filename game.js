@@ -24,9 +24,6 @@ $(document).ready(function() {
       let todayPlayer = playerNames[getRandomInt(numPlayers)];
       let todayPlayerData = playersData[todayPlayer];
 
-      console.log(todayPlayer);
-      console.log(todayPlayerData);
-
       // Show dropdown list of players
       var playersDropdownList = document.getElementById('players');
 
@@ -122,7 +119,6 @@ $(document).ready(function() {
       function showSuccessDialog() {
         disableInput();
 
-        // TODO
         currentModal = document.getElementById("successModal");
 
         var p = document.createElement("p");
@@ -136,6 +132,14 @@ $(document).ready(function() {
       function showFailureDialog() {
         // TODO
         disableInput();
+        currentModal = document.getElementById("failureModal");
+
+        var p = document.createElement("p");
+        p.innerHTML = `Today's player was ${todayPlayer}`;
+        currentModalContent = currentModal.querySelector('.modal-content');
+        currentModalContent.appendChild(p);
+
+        currentModal.style.display = "block";
       }
 
       // Give that the correct answer and the guess have different values for this field, add the appropriate arrow to the cell. 
